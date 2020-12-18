@@ -45,18 +45,28 @@ function validation() {
     highScoreChange();
     document.getElementById("current-score").innerHTML = 20;
     score = 20;
-  } else if (hiddenValue > inputNumber) {
-    document.getElementById("message").innerHTML = "Too low!";
-    document.getElementById("hidden").innerHTML = "?";
-    document.body.style.backgroundColor = "#313030";
-    scoreChange();
-  } else {
-    document.getElementById("message").innerHTML = "Too high!";
+  } else if (hiddenValue !== inputNumber) {
+    document.getElementById("message").innerHTML =
+      inputNumber > hiddenValue ? "Too high!" : "Too low!";
     document.getElementById("hidden").innerHTML = "?";
     document.body.style.backgroundColor = "#313030";
     scoreChange();
   }
 }
+
+//  Old check
+//   else if (hiddenValue > inputNumber) {
+//     document.getElementById("message").innerHTML = "Too low!";
+//     document.getElementById("hidden").innerHTML = "?";
+//     document.body.style.backgroundColor = "#313030";
+//     scoreChange();
+//   } else {
+//     document.getElementById("message").innerHTML = "Too high!";
+//     document.getElementById("hidden").innerHTML = "?";
+//     document.body.style.backgroundColor = "#313030";
+//     scoreChange();
+//   }
+// }
 
 // Resets the game
 function resetScore() {
