@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Press Start 2P", cursive;
+}
+
+body {
+  background-color: rgb(49, 48, 48);
+  padding: 40px 0;
+}
+
+.info {
+  position: relative;
+  float: right;
+  color: white;
+  margin-right: 25px;
+}
+
+button {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  outline: none;
+  margin-left: 25px;
+}
+
+button:hover {
+  background: black;
+  color: white;
+}
+
+.number {
+  text-align: center;
+  margin: 100px 0;
+  height: 100px;
+}
+
+.number-box-line {
+  background-color: white;
+  height: 10px;
+  position: relative;
+  top: 50%;
+}
+
+.number-box {
+  background-color: rgb(255, 255, 255);
+  font-size: 100px;
+  padding: 5px 0;
+  width: 15%;
+  margin: auto;
+  position: relative;
+  top: -50px;
+  height: 100px;
+  line-height: 110px;
+  color: rgb(49, 48, 48);
+}
+
+h1 {
+  font-size: 55px;
+  color: white;
+  text-align: center;
+  margin-bottom: 70px;
+  margin-top: 100px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+.content-left {
+  font-size: 25px;
+  font-weight: bolder;
+  color: white;
+  width: 1000px;
+  text-align: center;
+}
+
+.content-right {
+  font-size: 25px;
+  font-weight: bolder;
+  color: white;
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+.field {
+  padding: 25px 0;
+  width: 25%;
+  text-align: center;
+  font-size: 35px;
+  margin: 15px 0;
+  outline: none;
+  border: white 2px solid;
+  height: 30px;
+  background-color: rgb(49, 48, 48);
+  color: white;
+}
+
+.field::-webkit-input-placeholder {
+  font-size: 8px;
+  line-height: 12px;
+  position: relative;
+  top: -12px;
+}
+
+.field:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+ul {
+  list-style-type: none;
+  display: block;
+  padding: 10px;
+}
+
+#score li {
+  display: inline-block;
+}
+
+#highscore-panel li {
+  display: inline-block;
+}
