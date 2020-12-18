@@ -1,21 +1,21 @@
 "use strict";
 
+let score = 20;
+let highscore = 0;
+let hiddenValue = randomNumber();
+
 // Generate random number
 function randomNumber() {
   let hiddenNumber = Math.trunc(Math.random() * 20) + 1;
   return hiddenNumber;
 }
 
-let score = 20;
-let highscore = 0;
-
 // Updates the current score based on the player's guess
 function scoreChange() {
   document.getElementById("current-score").innerHTML = `${score - 1}`;
   score--;
   if (score === 0) {
-    document.getElementById("message").innerHTML =
-      "You lost the game. Reset the game!";
+    messageDisplay("You lost the game. Reset the game!");
     document.body.style.backgroundColor = "#4d0099";
   }
 }
@@ -24,31 +24,45 @@ function scoreChange() {
 function highScoreChange() {
   if (score > highscore) {
     highscore = score;
-    document.getElementById("highscore").innerHTML = score;
+    hScoreDisplay(score);
   }
 }
 
-let hiddenValue = randomNumber();
+//Refactoring with functions
+
+function messageDisplay(message) {
+  document.getElementById("message").innerHTML = message;
+}
+
+function hiddenDisplay(hidden) {
+  document.getElementById("hidden").innerHTML = hidden;
+}
+
+function currentScoreDisplay(currentScore) {
+  document.getElementById("current-score").innerHTML = currentScore;
+}
+
+function hScoreDisplay(hScore) {
+  document.getElementById("highscore").innerHTML = hScore;
+}
+//
 
 // Checks whether the input value and the hidden number are equal
 function validation() {
   let inputNumber = parseInt(document.getElementById("number-input").value);
-
   if (!inputNumber) {
-    document.getElementById("message").innerHTML = "Please choose a number!";
+    messageDisplay("Please choose a number!");
   } else if (hiddenValue === inputNumber) {
-    document.getElementById("hidden").innerHTML = inputNumber;
-    document.getElementById("message").innerHTML =
-      "You got it! Reset or try to get a higher score.";
+    hiddenDisplay(inputNumber);
+    messageDisplay("You got it! Reset or try to get a higher score.");
     document.body.style.backgroundColor = "green";
     hiddenValue = randomNumber();
     highScoreChange();
-    document.getElementById("current-score").innerHTML = 20;
+    currentScoreDisplay(20);
     score = 20;
   } else if (hiddenValue !== inputNumber) {
-    document.getElementById("message").innerHTML =
-      inputNumber > hiddenValue ? "Too high!" : "Too low!";
-    document.getElementById("hidden").innerHTML = "?";
+    messageDisplay(inputNumber > hiddenValue ? "Too high!" : "Too low!");
+    hiddenDisplay("?");
     document.body.style.backgroundColor = "#313030";
     scoreChange();
   }
@@ -73,9 +87,9 @@ function resetScore() {
   score = 20;
   highscore = 0;
   document.body.style.backgroundColor = "#313030";
-  document.getElementById("hidden").innerHTML = "?";
-  document.getElementById("message").innerHTML = "Start guessing:";
-  document.getElementById("current-score").innerHTML = score;
-  document.getElementById("highscore").innerHTML = highscore;
+  hiddenDisplay("?");
+  messageDisplay("Start guessing:");
+  currentScoreDisplay(score);
+  hScoreDisplay(highscore);
   document.getElementById("number-input").value = " ";
 }
